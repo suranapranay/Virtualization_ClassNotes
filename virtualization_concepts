@@ -1,0 +1,38 @@
+Interposition on complex syst
+
+
+wrapper func
+
+
+loader, ld --wrap create wrapper at link time
+
+shared library, dlsym
+
+modify ELF tables, symbol tabe, relocation table.
+
+
+Symbol Table : a symbol table map of string <address> .. . .. .. 
+
+relocation table : Callsite : <Address (jmp)> | name(string).
+
+external Symbols : dynamic symbols!
+Internal Symbols : harder to wrap around because they are stripped out. (Position independent ocde).
+
+Virutalize Signals :  If the OS exposes signal vs signal handlers? Just overwrite.
+Device Drivers: They are virtualizatons. Based on 5 or 6 IO calls, open read write close.
+
+Kernel tables : PID, FD. --> Kernel module, modify PID.
+                         --> Hopefully it won't matter.
+                         --> Expose the process ID and allow the user to modify.(DON"T)
+                         --> wrapper around Sys call. --> allocate.
+
+Checkpoint/Restart or save/restore workspace. Interpose during chkpt/restart, reopen the filez.
+
+Process Virutalization : Interpose on LibC.
+
+Save/Restore VM Snapshot (OS + Process + FS).
+Container - fs (esp read-write portion).
+Process virtualiztion : Checkpointing.
+
+
+language virtual machines : Save restore / Migration. Do live migration.
